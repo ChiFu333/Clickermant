@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d61ba96948eb6db4b9c8391258425a50, type: 3}
+  m_Name: Demon
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  icon: {fileID: 6897479667268090689, guid: a3d2830b7e8cfbb40a478161ef01009e, type: 3}
+  <maxHealth>k__BackingField: 100
+  <fraction>k__BackingField: 0
+  <prefab>k__BackingField: {fileID: 3936189641931467427, guid: 062aa21ef46d55948971d9afc5cc536d, type: 3}
+  <manaCost>k__BackingField: 40
+  <cost>k__BackingField: []
+  <movementSpeed>k__BackingField: 1
+  <fightSound>k__BackingField: {fileID: 11400000, guid: 396f022401475e74c97eb8fb216eeec7, type: 2}
+  <damage>k__BackingField: 50
+  <cooldown>k__BackingField: 1
+  <attackDistance>k__BackingField: 0.5

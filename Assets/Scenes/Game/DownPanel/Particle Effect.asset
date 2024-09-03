@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51bb5ae590e3dc64086bfa6b915b24dd, type: 3}
+  m_Name: Particle Effect
+  m_EditorClassIdentifier: 
+  <duration>k__BackingField: 1
+  <particles>k__BackingField:
+  - particleSystem: {fileID: 6489654307226606899, guid: b3213452658399b48a5fac838dee8c67, type: 3}
+    emissionType: 1
+    burstAmount: 3
+  <temporalSprites>k__BackingField: []
+  <audioSet>k__BackingField: {fileID: 11400000, guid: 31c1becb4e84e4546a14c15adbc68d6f, type: 2}

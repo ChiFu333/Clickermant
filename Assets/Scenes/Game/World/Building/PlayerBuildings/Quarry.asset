@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1345335e7f5b434d99d881faccd4774, type: 3}
+  m_Name: Quarry
+  m_EditorClassIdentifier: 
+  <icon>k__BackingField: {fileID: -557961968, guid: 4c811f89e40e2274fab303b9d58fd1a9, type: 3}
+  <size>k__BackingField: {x: 3, y: 2}
+  <offset>k__BackingField: {x: 0.5, y: 0.5}
+  <buildingPrefab>k__BackingField: {fileID: 1089184422354277819, guid: 25ffd9376cc6c5b49a9feb2288c6de24, type: 3}
+  <cost>k__BackingField:
+  - <data>k__BackingField: {fileID: 11400000, guid: 4f9180a1a50f57546ba9ff7283df96dc, type: 2}
+    <count>k__BackingField: 8
+  - <data>k__BackingField: {fileID: 11400000, guid: 31501f8c1d21dbb44bb7230084ec8d5f, type: 2}
+    <count>k__BackingField: 2
+  <health>k__BackingField: 100
+  <unitCapacity>k__BackingField: 4
+  <applicableUnits>k__BackingField: {fileID: 11400000, guid: a0baf119fda3a7d449b35e26ba93e0d9, type: 2}

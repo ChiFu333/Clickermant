@@ -1,0 +1,91 @@
+#include "UnityCG.cginc"
+
+#pragma kernel seedKernel
+#pragma kernel floodKernel
+
+#define THREAD_GROUP_WIDTH 8
+
+//Processed
+
+Texture2D SeedTexRead;
+RWTexture2D<float4> FloodTex;
+CBUFFER_START( Often )
+	float SeedThreshold;
+	float2 TexelSize;
+	uint2 Dimensions;
+	int BorderOffset;
+CBUFFER_END
+CBUFFER_START( Always )
+	int StepSize;
+CBUFFER_END
+SamplerState LinearClamp;
+
+//Offsets
+
+#define NEIGHBOUR_COUNT 9
+static const int2 offsets[ NEIGHBOUR_COUNT ] = {
+	int2( -1, -1 ), int2( 0, -1 ), int2( 1, -1 ),
+	int2( -1,  0 ), int2( 0,  0 ), int2( 1,  0 ),
+	int2( -1,  1 ), int2( 0,  1 ), int2( 1,  1 ),
+};
+
+//Kernels
+
+[numthreads( THREAD_GROUP_WIDTH, THREAD_GROUP_WIDTH, 1 )]
+void seedKernel (uint2 coord : SV_DispatchThreadID)
+{
+	if (coord.x >= Dimensions.x || coord.y >= Dimensions.y) return;
+
+	//Sample for seed
+	float2 uv = (coord + 0.5) * TexelSize;
+	uv = (uv - 0.5) * 2 + 0.5;
+	bool isInsideSeed = SeedTexRead.SampleLevel(LinearClamp, uv, 0).a > SeedThreshold;
+	int2 seed = coord + int2(1,1);
+	FloodTex[coord] = isInsideSeed ? float4(seed / 255.0f,0,0) : float4(0,0,seed / 255.0f);
+}
+
+
+groupshared uint2x3 sharedCoordDist[ NEIGHBOUR_COUNT ];
+
+[numthreads( 1, 1, NEIGHBOUR_COUNT )]
+void floodKernel( uint2 coord : SV_DispatchThreadID, uint3 gtId : SV_GroupThreadID )
+{
+	// Get the jump offset.
+	int2 sampleCoord = coord + offsets[ gtId.z ] * StepSize;
+
+	// Sample.
+	int4 seed = FloodTex[ sampleCoord ] * 255; // Reads outside bounds will return zeros.
+	int2 shiftedCoord = coord + int2( 1, 1 );
+	int4 diff = seed - shiftedCoord.xyxy;
+	sharedCoordDist[ gtId.z ] = int2x3(
+		seed.xy, any( seed.xy ) ? dot( diff.xy, diff.xy ) : 9999999, // enough to be ignored
+		seed.zw, any( seed.zw ) ? dot( diff.zw, diff.zw ) : 9999999
+	);
+
+	// Nuh uh
+	GroupMemoryBarrier();
+
+	// If first thread in group, read from shared memory and find coordinate with smallest distance.
+	if( gtId.z == 0 )
+	{
+		uint bestOuterDist = 9999999;
+		uint bestInnerDist = 9999999;
+		uint2 bestOuterCoord = int2( 0, 0 );
+		uint2 bestInnerCoord = int2( 0, 0 );
+		uint2x3 data;
+		[unroll]
+		for( int i = 0; i < NEIGHBOUR_COUNT; i++ )
+		{
+			data = sharedCoordDist[ i ];
+			if( data._m02 < bestInnerDist ){
+				bestInnerDist = data._m02;
+				bestInnerCoord = data._m00_m01;
+			}
+			if( data._m12 < bestOuterDist ){
+				bestOuterDist = data._m12;
+				bestOuterCoord = data._m10_m11;
+			}
+		}
+		FloodTex[coord] = float4( bestInnerCoord / 255.0f, bestOuterCoord  / 255.0f);
+	}
+}

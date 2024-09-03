@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67b06c5b1b51c6945847e0c78c724430, type: 3}
+  m_Name: Res4
+  m_EditorClassIdentifier: 
+  <icon>k__BackingField: {fileID: -474457591701876553, guid: 277d2cb349b0922448fba82f986b010f, type: 3}
+  <bonusName>k__BackingField: x1.3 Faster Mining
+  <researchCost>k__BackingField: 20
+  <bonuses>k__BackingField:
+  - <type>k__BackingField: 3
+    <unitData>k__BackingField: {fileID: 11400000, guid: fef17413f7d116f4588416240c4973b3, type: 2}
+    <buildingData>k__BackingField: {fileID: 11400000, guid: 0ecbc87fc03912e4c863fe29b8e03e39, type: 2}
+    <plusBonusCode>k__BackingField: AttackUp
+    <plusBonus>k__BackingField: 0
+    <multiBonusCode>k__BackingField: Mining
+    <multiBonus>k__BackingField: 0.3

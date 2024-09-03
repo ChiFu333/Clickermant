@@ -1,0 +1,37 @@
+#include "UnityCG.cginc"
+
+#pragma kernel SDFKernel
+
+#define THREAD_GROUP_WIDTH 8
+
+//Processed
+
+//Texture2D<uint4> FloodTexRead;
+Texture2D<float4> FloodTexRead;
+RWTexture2D<float> SdfTex;
+
+CBUFFER_START( Often )
+	float2 TexelSize;
+	uint2 Dimensions;
+CBUFFER_END
+
+[numthreads( THREAD_GROUP_WIDTH, THREAD_GROUP_WIDTH, 1 )]
+void SDFKernel( uint2 coord : SV_DispatchThreadID )
+{
+	if( coord.x >= Dimensions.x || coord.y >= Dimensions.y ) return;
+
+	int4 closestCoords = FloodTexRead[ coord ] * 255;
+	int2 shiftedCoord = coord + int2( 1, 1 );
+	float4 diff = closestCoords - shiftedCoord.xyxy;
+
+	float outerDist = any( closestCoords.xy ) ? length( diff.xy ) : 0;
+	float innerDist = any( closestCoords.zw ) ? length( diff.zw ) : 0;
+	float sd = outerDist - innerDist; // If coord is inside then outerDist will be zero, else innerDist will be zero.
+	
+	// Use same convension as Unity's SDF Bake Tool
+	// "the underlying surface scales such that the largest side of the Texture is of length 1".
+	// https://docs.unity3d.com/Packages/com.unity.visualeffectgraph@15.0/manual/sdf-in-vfx-graph.html
+	sd *= min( TexelSize.x, TexelSize.y );
+	
+	SdfTex[ coord ] = sd;
+}

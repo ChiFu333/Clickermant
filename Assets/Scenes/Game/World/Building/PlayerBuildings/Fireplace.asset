@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1345335e7f5b434d99d881faccd4774, type: 3}
+  m_Name: Fireplace
+  m_EditorClassIdentifier: 
+  <icon>k__BackingField: {fileID: 50717988, guid: 4c811f89e40e2274fab303b9d58fd1a9, type: 3}
+  <size>k__BackingField: {x: 1, y: 1}
+  <offset>k__BackingField: {x: 0, y: 0}
+  <buildingPrefab>k__BackingField: {fileID: 7351586337687485630, guid: 17f933235c0c1cc48a12624f05b6fd35, type: 3}
+  <cost>k__BackingField:
+  - <data>k__BackingField: {fileID: 11400000, guid: 31501f8c1d21dbb44bb7230084ec8d5f, type: 2}
+    <count>k__BackingField: 5
+  <health>k__BackingField: 50
+  <unitCapacity>k__BackingField: 3
+  <applicableUnits>k__BackingField: {fileID: 11400000, guid: 40595ba63cab8384a8f1cd81414f6f91, type: 2}

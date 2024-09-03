@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38be90e10979a1f4c8f73ec4285cad45, type: 3}
+  m_Name: Fireplace
+  m_EditorClassIdentifier: 
+  <sprite>k__BackingField: {fileID: -4109412795537874883, guid: 6a29c913e8e07644382d1772a2d47cb0, type: 3}
+  <buildName>k__BackingField: Fireplace
+  <resCosts>k__BackingField:
+  - <data>k__BackingField: {fileID: 11400000, guid: 31501f8c1d21dbb44bb7230084ec8d5f, type: 2}
+    <count>k__BackingField: 10
+  <buildData>k__BackingField: {fileID: 11400000, guid: 78d50966359586f4196c4fd35782366e, type: 2}

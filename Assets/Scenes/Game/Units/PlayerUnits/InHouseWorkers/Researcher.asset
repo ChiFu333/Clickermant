@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 979e6578c35f4ce4cbf870ffdb8526a3, type: 3}
+  m_Name: Researcher
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  icon: {fileID: -5840307614221572364, guid: 31e340362386d9842b46990f13d05996, type: 3}
+  <maxHealth>k__BackingField: 50
+  <fraction>k__BackingField: 0
+  <prefab>k__BackingField: {fileID: -4196561567118023851, guid: 3825e672d48eb034d88ed290eb22d2b0, type: 3}
+  <manaCost>k__BackingField: 20
+  <cost>k__BackingField: []
+  <movementSpeed>k__BackingField: 0
+  <lifeTime>k__BackingField: 11
+  <restDuration>k__BackingField: 2
+  <restManaConsumption>k__BackingField: 5
+  workPerWorkCycle: 4

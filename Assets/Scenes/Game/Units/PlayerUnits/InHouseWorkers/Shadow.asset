@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d25c662f7b0cebc4fad54fd12b61d017, type: 3}
+  m_Name: Shadow
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  icon: {fileID: 4093480436322176185, guid: 4c9c0b63eff6b254db36fbafe0a4cd09, type: 3}
+  <maxHealth>k__BackingField: 50
+  <fraction>k__BackingField: 0
+  <prefab>k__BackingField: {fileID: 6505927588986058379, guid: cdda5745230c3c24f9a77399525ca989, type: 3}
+  <manaCost>k__BackingField: 20
+  <cost>k__BackingField: []
+  <movementSpeed>k__BackingField: 0
+  <lifeTime>k__BackingField: 10
+  <restDuration>k__BackingField: 2
+  <restManaConsumption>k__BackingField: 15
+  manaMaking: 6
+  workPerWorkCycle: 4
